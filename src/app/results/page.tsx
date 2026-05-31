@@ -1,18 +1,106 @@
 import Link from "next/link";
 import { Header } from "@/components/Header";
-import { SearchBox } from "@/components/SearchBox";
+
+const tyres = [
+  {
+    brand: "Michelin",
+    model: "Primacy 4+",
+    type: "Premium",
+    price: "£124.99",
+    rating: "Wet grip A • Fuel B • 69dB",
+  },
+  {
+    brand: "Goodyear",
+    model: "EfficientGrip Performance 2",
+    type: "Premium",
+    price: "£112.99",
+    rating: "Wet grip A • Fuel B • 70dB",
+  },
+  {
+    brand: "Hankook",
+    model: "Ventus Prime 4",
+    type: "Mid-range",
+    price: "£89.99",
+    rating: "Wet grip B • Fuel C • 71dB",
+  },
+  {
+    brand: "Landsail",
+    model: "LS388",
+    type: "Budget",
+    price: "£59.99",
+    rating: "Wet grip C • Fuel C • 72dB",
+  },
+];
 
 export default function Page() {
   return (
     <main style={{ minHeight: "100vh", background: "#f8fafc", color: "#111827" }}>
       <Header />
+
       <section style={{ padding: "70px 6%", background: "linear-gradient(135deg,#fefce8,#ecfeff)" }}>
-        <span style={{ background: "#bef264", borderRadius: 999, padding: "8px 14px", fontWeight: 900, textTransform: "uppercase" }}>Results</span>
-        <h1 style={{ fontSize: 56, letterSpacing: "-.06em", maxWidth: 800 }}>NeedATyre Results</h1>
-        <p style={{ color: "#475569", fontSize: 18, maxWidth: 700, lineHeight: 1.6 }}>This page is ready for the next module. Connect live APIs, booking data and checkout when you are ready.</p>
-        <div style={{ marginTop: 30 }}><SearchBox /></div>
-        <Link href="/" style={{ display: "inline-flex", marginTop: 28, color: "#2563eb", fontWeight: 900 }}>← Back home</Link>
+        <span style={{ background: "#bef264", borderRadius: 999, padding: "8px 14px", fontWeight: 900, textTransform: "uppercase" }}>
+          Tyre results
+        </span>
+
+        <h1 style={{ fontSize: 56, letterSpacing: "-0.06em", maxWidth: 850 }}>
+          Recommended tyres
+        </h1>
+
+        <p style={{ color: "#475569", fontSize: 18, maxWidth: 760, lineHeight: 1.6 }}>
+          Example fitted tyre results for your vehicle. Connect supplier APIs later for live stock,
+          pricing, delivery and fitting availability.
+        </p>
+
+        <section style={{ display: "grid", gap: 18, marginTop: 40, maxWidth: 1000 }}>
+          {tyres.map((tyre) => (
+            <article
+              key={`${tyre.brand}-${tyre.model}`}
+              style={{
+                background: "white",
+                border: "1px solid #e5e7eb",
+                borderRadius: 26,
+                padding: 24,
+                display: "grid",
+                gridTemplateColumns: "1fr auto",
+                gap: 20,
+                alignItems: "center",
+              }}
+            >
+              <div>
+                <span style={{ color: "#2563eb", fontWeight: 900 }}>{tyre.type}</span>
+                <h2 style={{ margin: "8px 0", fontSize: 28 }}>
+                  {tyre.brand} {tyre.model}
+                </h2>
+                <p style={{ color: "#64748b", margin: 0 }}>{tyre.rating}</p>
+              </div>
+
+              <div style={{ textAlign: "right" }}>
+                <strong style={{ display: "block", fontSize: 30 }}>{tyre.price}</strong>
+                <span style={{ color: "#64748b", fontSize: 13 }}>fully fitted</span>
+                <br />
+                <Link href="/checkout" style={buttonStyle}>
+                  Select
+                </Link>
+              </div>
+            </article>
+          ))}
+        </section>
+
+        <Link href="/" style={{ display: "inline-flex", marginTop: 28, color: "#2563eb", fontWeight: 900 }}>
+          ← Back home
+        </Link>
       </section>
     </main>
   );
 }
+
+const buttonStyle: React.CSSProperties = {
+  display: "inline-flex",
+  marginTop: 14,
+  background: "#111827",
+  color: "white",
+  padding: "12px 20px",
+  borderRadius: 999,
+  fontWeight: 900,
+  textDecoration: "none",
+};
