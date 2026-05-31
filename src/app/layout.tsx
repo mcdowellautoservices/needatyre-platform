@@ -1,3 +1,20 @@
-import './globals.css'; import type {Metadata} from 'next'; import {Header} from '@/components/Header';
-export const metadata: Metadata = {title:'NeedATyre | Tyres fitted locally or at your location',description:'Book tyres online with garage fitting, mobile fitting, emergency assistance and fleet support.'};
-export default function RootLayout({children}:{children:React.ReactNode}){return <html lang="en"><body><Header/>{children}<footer className="mt-16 bg-navy px-5 py-10 text-white"><div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-4"><div><b>NeedATyre</b><p className="mt-2 text-sm text-white/70">The smarter Blackcircles alternative: tyres, fitting, breakdown and fleet.</p></div><div><b>Services</b><p className="text-sm text-white/70">Garage fitting<br/>Mobile fitting<br/>Emergency callout</p></div><div><b>Business</b><p className="text-sm text-white/70">Fleet accounts<br/>Partner garages<br/>Mobile fitter network</p></div><div><b>Launch checklist</b><p className="text-sm text-white/70">Connect APIs, add Stripe keys, configure supplier feeds.</p></div></div></footer></body></html>}
+import type { Metadata } from 'next';
+import './globals.css';
+
+export const metadata: Metadata = {
+  title: 'NeedATyre | Tyres fitted locally or at your location',
+  description:
+    'Book tyre fitting, mobile tyre fitting, puncture repairs and breakdown assistance.',
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en">
+      <body>{children}</body>
+    </html>
+  );
+}
