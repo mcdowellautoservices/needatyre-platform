@@ -1,3 +1,60 @@
-'use client';
-import {useRouter} from 'next/navigation'; import {useState} from 'react';
-export function SearchBox(){const [reg,setReg]=useState('AB12 CDE'),[postcode,setPostcode]=useState('EH54 6'); const r=useRouter(); function go(){r.push(`/results?reg=${encodeURIComponent(reg)}&postcode=${encodeURIComponent(postcode)}`)} return <div className="glass rounded-3xl p-4 shadow-glow"><div className="flex flex-col gap-3 md:flex-row"><input value={reg} onChange={e=>setReg(e.target.value)} className="plate min-h-16 flex-1 px-6 text-2xl outline-none"/><input value={postcode} onChange={e=>setPostcode(e.target.value)} placeholder="Postcode" className="min-h-16 flex-1 rounded-xl border px-6 text-xl outline-electric"/><button onClick={go} className="rounded-xl bg-electric px-7 py-4 font-black text-white">Find tyres</button></div><div className="mt-3 flex flex-wrap gap-2 text-sm font-semibold"><span className="rounded-full bg-white px-4 py-2">Search by registration</span><span className="rounded-full bg-white px-4 py-2">Search by tyre size</span><span className="rounded-full bg-white px-4 py-2">Fully fitted prices</span></div></div>}
+import Link from "next/link";
+
+export function SearchBox() {
+  return (
+    <div style={styles.card}>
+      <div style={styles.row}>
+        <input style={styles.reg} placeholder="AB12 CDE" aria-label="Vehicle registration" />
+        <input style={styles.postcode} placeholder="Postcode" aria-label="Postcode" />
+        <Link href="/results" style={styles.button}>Find tyres</Link>
+      </div>
+      <div style={styles.tabs}>
+        <span style={styles.active}>Search by registration</span>
+        <span style={styles.tab}>Search by tyre size</span>
+        <span style={styles.tab}>Fully fitted prices</span>
+      </div>
+    </div>
+  );
+}
+
+const styles: Record<string, React.CSSProperties> = {
+  card: {
+    background: "rgba(255,255,255,.86)",
+    border: "1px solid rgba(15,23,42,.08)",
+    boxShadow: "0 30px 80px rgba(15,23,42,.12)",
+    borderRadius: 28,
+    padding: 18,
+    maxWidth: 780
+  },
+  row: { display: "flex", gap: 10, flexWrap: "wrap" },
+  reg: {
+    flex: "1 1 210px",
+    background: "#facc15",
+    border: "3px solid #111827",
+    borderRadius: 16,
+    padding: "18px 20px",
+    fontWeight: 900,
+    fontSize: 20,
+    textTransform: "uppercase"
+  },
+  postcode: {
+    flex: "1 1 190px",
+    border: "1px solid #cbd5e1",
+    borderRadius: 16,
+    padding: "18px 20px",
+    fontSize: 16
+  },
+  button: {
+    background: "#2563eb",
+    color: "#fff",
+    textDecoration: "none",
+    borderRadius: 16,
+    padding: "18px 24px",
+    fontWeight: 900,
+    display: "grid",
+    placeItems: "center"
+  },
+  tabs: { display: "flex", gap: 14, flexWrap: "wrap", paddingTop: 15, fontSize: 14 },
+  active: { background: "#d9f99d", padding: "7px 12px", borderRadius: 999, fontWeight: 900 },
+  tab: { color: "#475569", padding: "7px 0", fontWeight: 800 }
+};

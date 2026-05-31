@@ -1,2 +1,18 @@
-import {garages} from '@/lib/data';
-export default function Booking(){return <main className="mx-auto max-w-6xl px-5 py-12"><h1 className="text-5xl font-black">Choose fitting appointment</h1><div className="mt-8 grid gap-6 md:grid-cols-3">{garages.map(g=><div className="rounded-3xl bg-white p-6 shadow-sm" key={g.id}><h3 className="text-xl font-black">{g.name}</h3><p className="text-slate-600">{g.distance} · ★ {g.rating}</p><div className="mt-5 grid gap-2">{g.slots.map(s=><a className="rounded-xl border p-3 font-bold hover:border-electric" href="/checkout" key={s}>{s}</a>)}</div></div>)}</div></main>}
+import Link from "next/link";
+import { Header } from "@/components/Header";
+import { SearchBox } from "@/components/SearchBox";
+
+export default function Page() {
+  return (
+    <main style={{ minHeight: "100vh", background: "#f8fafc", color: "#111827" }}>
+      <Header />
+      <section style={{ padding: "70px 6%", background: "linear-gradient(135deg,#fefce8,#ecfeff)" }}>
+        <span style={{ background: "#bef264", borderRadius: 999, padding: "8px 14px", fontWeight: 900, textTransform: "uppercase" }}>Booking</span>
+        <h1 style={{ fontSize: 56, letterSpacing: "-.06em", maxWidth: 800 }}>NeedATyre Booking</h1>
+        <p style={{ color: "#475569", fontSize: 18, maxWidth: 700, lineHeight: 1.6 }}>This page is ready for the next module. Connect live APIs, booking data and checkout when you are ready.</p>
+        <div style={{ marginTop: 30 }}><SearchBox /></div>
+        <Link href="/" style={{ display: "inline-flex", marginTop: 28, color: "#2563eb", fontWeight: 900 }}>← Back home</Link>
+      </section>
+    </main>
+  );
+}

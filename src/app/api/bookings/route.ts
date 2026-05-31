@@ -1,2 +1,6 @@
-import {NextResponse} from 'next/server';
-export async function POST(req:Request){const body=await req.json().catch(()=>({})); return NextResponse.json({ok:true,bookingId:'NAT-'+Date.now(),status:'reserved',body})}
+import { NextResponse } from "next/server";
+
+export async function POST(request: Request) {
+  const body = await request.json().catch(() => ({}));
+  return NextResponse.json({ ok: true, bookingReference: "NAT-1001", booking: body });
+}

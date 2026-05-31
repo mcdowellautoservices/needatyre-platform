@@ -1,2 +1,18 @@
-import {tyres, garages} from '@/lib/data'; import {TyreCard} from '@/components/TyreCard';
-export default function Results(){return <main className="mx-auto max-w-7xl px-5 py-12"><h1 className="text-5xl font-black">Tyres for your vehicle</h1><p className="mt-3 text-slate-600">Mock registration lookup result: Ford Focus · 225/45 R17 · EH54 fitting options.</p><div className="mt-8 grid gap-6 lg:grid-cols-[280px_1fr]"><aside className="h-fit rounded-3xl bg-white p-5 shadow-sm"><b>Filters</b>{['Premium','Mid-range','Budget','EV ready','Run-flat','Van tyres','Available today'].map(f=><label className="mt-4 flex gap-2 text-sm" key={f}><input type="checkbox"/> {f}</label>)}<hr className="my-5"/><b>Fitting options</b>{garages.map(g=><p className="mt-3 rounded-xl bg-steel p-3 text-sm" key={g.id}>{g.name}<br/><span className="text-slate-500">{g.distance}</span></p>)}</aside><section className="grid gap-5 md:grid-cols-2">{tyres.map(t=><TyreCard t={t} key={t.id}/>)}</section></div></main>}
+import Link from "next/link";
+import { Header } from "@/components/Header";
+import { SearchBox } from "@/components/SearchBox";
+
+export default function Page() {
+  return (
+    <main style={{ minHeight: "100vh", background: "#f8fafc", color: "#111827" }}>
+      <Header />
+      <section style={{ padding: "70px 6%", background: "linear-gradient(135deg,#fefce8,#ecfeff)" }}>
+        <span style={{ background: "#bef264", borderRadius: 999, padding: "8px 14px", fontWeight: 900, textTransform: "uppercase" }}>Results</span>
+        <h1 style={{ fontSize: 56, letterSpacing: "-.06em", maxWidth: 800 }}>NeedATyre Results</h1>
+        <p style={{ color: "#475569", fontSize: 18, maxWidth: 700, lineHeight: 1.6 }}>This page is ready for the next module. Connect live APIs, booking data and checkout when you are ready.</p>
+        <div style={{ marginTop: 30 }}><SearchBox /></div>
+        <Link href="/" style={{ display: "inline-flex", marginTop: 28, color: "#2563eb", fontWeight: 900 }}>← Back home</Link>
+      </section>
+    </main>
+  );
+}

@@ -1,1 +1,18 @@
-export default function Checkout(){return <main className="mx-auto max-w-4xl px-5 py-12"><h1 className="text-5xl font-black">Checkout</h1><div className="mt-8 grid gap-6 md:grid-cols-2"><div className="rounded-3xl bg-white p-6 shadow-sm"><h2 className="text-2xl font-black">Order summary</h2><p className="mt-4">2 × Michelin Pilot Sport 5</p><p>Mobile fitting · Tomorrow 09:30</p><p className="mt-6 text-3xl font-black">£257.98</p></div><div className="rounded-3xl bg-navy p-6 text-white"><h2 className="text-2xl font-black">Stripe-ready payment</h2><p className="mt-4 text-white/70">Add STRIPE_SECRET_KEY and NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY in Vercel environment variables, then replace this demo button with a Checkout Session call.</p><button className="mt-6 w-full rounded-xl bg-lime py-4 font-black text-navy">Pay securely</button></div></div></main>}
+import Link from "next/link";
+import { Header } from "@/components/Header";
+import { SearchBox } from "@/components/SearchBox";
+
+export default function Page() {
+  return (
+    <main style={{ minHeight: "100vh", background: "#f8fafc", color: "#111827" }}>
+      <Header />
+      <section style={{ padding: "70px 6%", background: "linear-gradient(135deg,#fefce8,#ecfeff)" }}>
+        <span style={{ background: "#bef264", borderRadius: 999, padding: "8px 14px", fontWeight: 900, textTransform: "uppercase" }}>Checkout</span>
+        <h1 style={{ fontSize: 56, letterSpacing: "-.06em", maxWidth: 800 }}>NeedATyre Checkout</h1>
+        <p style={{ color: "#475569", fontSize: 18, maxWidth: 700, lineHeight: 1.6 }}>This page is ready for the next module. Connect live APIs, booking data and checkout when you are ready.</p>
+        <div style={{ marginTop: 30 }}><SearchBox /></div>
+        <Link href="/" style={{ display: "inline-flex", marginTop: 28, color: "#2563eb", fontWeight: 900 }}>← Back home</Link>
+      </section>
+    </main>
+  );
+}
