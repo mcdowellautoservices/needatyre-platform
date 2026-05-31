@@ -2,17 +2,122 @@ import Link from "next/link";
 import { Header } from "@/components/Header";
 import { SearchBox } from "@/components/SearchBox";
 
+const tyreTypes = [
+  {
+    title: "Premium tyres",
+    text: "Michelin, Goodyear, Continental, Bridgestone and Pirelli-style premium options.",
+  },
+  {
+    title: "Mid-range tyres",
+    text: "Strong value tyres for everyday driving, commuting, vans and family vehicles.",
+  },
+  {
+    title: "Budget tyres",
+    text: "Affordable tyre options with clear fitted pricing and local availability.",
+  },
+  {
+    title: "Van and fleet tyres",
+    text: "Commercial tyre support for vans, business vehicles and local fleet operators.",
+  },
+];
+
 export default function Page() {
   return (
     <main style={{ minHeight: "100vh", background: "#f8fafc", color: "#111827" }}>
       <Header />
+
       <section style={{ padding: "70px 6%", background: "linear-gradient(135deg,#fefce8,#ecfeff)" }}>
-        <span style={{ background: "#bef264", borderRadius: 999, padding: "8px 14px", fontWeight: 900, textTransform: "uppercase" }}>Tyres</span>
-        <h1 style={{ fontSize: 56, letterSpacing: "-.06em", maxWidth: 800 }}>NeedATyre Tyres</h1>
-        <p style={{ color: "#475569", fontSize: 18, maxWidth: 700, lineHeight: 1.6 }}>This page is ready for the next module. Connect live APIs, booking data and checkout when you are ready.</p>
-        <div style={{ marginTop: 30 }}><SearchBox /></div>
-        <Link href="/" style={{ display: "inline-flex", marginTop: 28, color: "#2563eb", fontWeight: 900 }}>← Back home</Link>
+        <span style={badge}>Online tyre search</span>
+
+        <h1 style={{ fontSize: 56, letterSpacing: "-0.06em", maxWidth: 850 }}>
+          Search tyres by registration, size or postcode
+        </h1>
+
+        <p style={{ color: "#475569", fontSize: 18, maxWidth: 760, lineHeight: 1.6 }}>
+          Compare tyre options, fully fitted prices, garage fitting, mobile fitting
+          and emergency tyre assistance through NeedATyre.
+        </p>
+
+        <div style={{ marginTop: 30 }}>
+          <SearchBox />
+        </div>
+
+        <section style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))", gap: 18, marginTop: 42 }}>
+          {tyreTypes.map((item) => (
+            <article key={item.title} style={card}>
+              <h2 style={{ marginTop: 0 }}>{item.title}</h2>
+              <p style={{ color: "#64748b", lineHeight: 1.6 }}>{item.text}</p>
+              <Link href="/results" style={smallButton}>
+                View tyres
+              </Link>
+            </article>
+          ))}
+        </section>
+
+        <section style={darkBox}>
+          <h2 style={{ fontSize: 34, marginTop: 0 }}>Built for online tyre sales</h2>
+          <p style={{ color: "#cbd5e1", lineHeight: 1.7 }}>
+            This page is ready to connect to supplier stock, live pricing, tyre label
+            data, fitting availability and Stripe checkout.
+          </p>
+
+          <Link href="/booking" style={button}>
+            Start tyre search
+          </Link>
+        </section>
+
+        <Link href="/" style={{ display: "inline-flex", marginTop: 28, color: "#2563eb", fontWeight: 900 }}>
+          ← Back home
+        </Link>
       </section>
     </main>
   );
 }
+
+const badge: React.CSSProperties = {
+  background: "#bef264",
+  borderRadius: 999,
+  padding: "8px 14px",
+  fontWeight: 900,
+  textTransform: "uppercase",
+  display: "inline-flex",
+};
+
+const card: React.CSSProperties = {
+  background: "white",
+  border: "1px solid #e5e7eb",
+  borderRadius: 24,
+  padding: 24,
+  boxShadow: "0 18px 50px rgba(15,23,42,0.08)",
+};
+
+const smallButton: React.CSSProperties = {
+  display: "inline-flex",
+  marginTop: 12,
+  background: "#111827",
+  color: "white",
+  padding: "10px 16px",
+  borderRadius: 999,
+  fontWeight: 900,
+  textDecoration: "none",
+};
+
+const darkBox: React.CSSProperties = {
+  marginTop: 50,
+  background: "#111827",
+  color: "white",
+  borderRadius: 28,
+  padding: 32,
+  maxWidth: 900,
+};
+
+const button: React.CSSProperties = {
+  display: "inline-flex",
+  marginTop: 20,
+  background: "#facc15",
+  color: "#111827",
+  padding: "14px 22px",
+  borderRadius: 999,
+  fontWeight: 900,
+  textDecoration: "none",
+};
