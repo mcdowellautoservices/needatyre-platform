@@ -1,33 +1,9 @@
-import "./globals.css";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "NeedATyre | Tyres Fitted Locally or At Your Location",
+  title: "NeedATyre | Tyres fitted locally or at your location",
   description:
-    "Book tyre fitting online. Mobile tyre fitting, garage fitting, fleet tyre services and emergency tyre assistance across the UK.",
-
-  keywords: [
-    "NeedATyre",
-    "Tyres",
-    "Tyre fitting",
-    "Mobile tyre fitting",
-    "Emergency tyre fitting",
-    "Fleet tyres",
-    "Garage tyre fitting",
-  ],
-
-  authors: [
-    {
-      name: "Mcdowell Auto Services",
-    },
-  ],
-
-  openGraph: {
-    title: "NeedATyre",
-    description:
-      "Search tyres, compare fitted prices and book online.",
-    type: "website",
-  },
+    "Book tyre fitting, mobile tyre fitting, puncture repairs and emergency tyre services.",
 };
 
 export default function RootLayout({
@@ -37,7 +13,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body
+        style={{
+          margin: 0,
+          padding: 0,
+          fontFamily: "Arial, Helvetica, sans-serif",
+          backgroundColor: "#f8fafc",
+          color: "#111827",
+        }}
+      >
+        {children}
+      </body>
     </html>
   );
 }
