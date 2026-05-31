@@ -1,9 +1,10 @@
+import "./globals.css";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "NeedATyre | Tyres fitted locally or at your location",
   description:
-    "Book tyre fitting, mobile tyre fitting, puncture repairs and breakdown assistance.",
+    "Book tyre fitting, mobile tyre fitting, puncture repairs, breakdown tyre assistance, fleet tyre support and garage fitting online.",
 };
 
 export default function RootLayout({
