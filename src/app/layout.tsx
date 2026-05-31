@@ -1,10 +1,9 @@
-import "./globals.css";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "NeedATyre | Tyres fitted locally or at your location",
   description:
-    "Book tyre fitting, mobile tyre fitting, puncture repairs, breakdown tyre assistance, fleet tyre support and garage fitting online.",
+    "Book tyre fitting, mobile tyre fitting, puncture repairs and emergency tyre services.",
 };
 
 export default function RootLayout({
@@ -14,7 +13,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body
+        style={{
+          margin: 0,
+          padding: 0,
+          fontFamily: "Arial, Helvetica, sans-serif",
+          backgroundColor: "#ffffff",
+        }}
+      >
+        {children}
+      </body>
     </html>
   );
 }
