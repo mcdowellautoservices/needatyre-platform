@@ -1,6 +1,11 @@
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
-  const body = await request.json().catch(() => ({}));
-  return NextResponse.json({ ok: true, bookingReference: "NAT-1001", booking: body });
+  const body = await request.json();
+  return NextResponse.json({
+    ok: true,
+    bookingId: `NAT-${Date.now()}`,
+    status: "received",
+    booking: body
+  });
 }
