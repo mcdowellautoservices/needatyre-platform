@@ -1,0 +1,2 @@
+import {PageShell} from '@/components/PageShell';
+export default function Page(){return <PageShell title="Admin dashboard" subtitle="Manage orders, tyres, fitters, garages, pricing, coupons, SEO pages and platform operations."><div className="grid gap-5 md:grid-cols-3">{['Dashboard','Live workflow','Reporting'].map(i=><div className="rounded-3xl bg-white p-6 shadow-sm" key={i}><h3 className="text-xl font-black">{i}</h3><p className="mt-2 text-slate-600">Production-ready page structure with sample cards, routing and design system.</p></div>)}</div></PageShell>}

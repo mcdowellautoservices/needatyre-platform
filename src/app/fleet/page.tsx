@@ -1,0 +1,2 @@
+import {PageShell} from '@/components/PageShell'; import {fleetVehicles} from '@/lib/data';
+export default function Page(){return <PageShell title="Fleet dashboard" subtitle="Fleet customers can manage vehicles, invoices, tyre history, driver requests and monthly reporting."><div className="grid gap-4">{fleetVehicles.map(v=><div className="rounded-2xl bg-white p-5 shadow-sm" key={v.reg}><b>{v.reg}</b> · {v.vehicle}<span className="float-right text-electric">{v.status}</span></div>)}</div></PageShell>}

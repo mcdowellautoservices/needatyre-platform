@@ -1,0 +1,2 @@
+import {NextResponse} from 'next/server';
+export async function GET(req:Request){const {searchParams}=new URL(req.url); const reg=searchParams.get('reg')||'AB12 CDE'; return NextResponse.json({reg,make:'Ford',model:'Focus',year:2019,primarySize:'225/45 R17',alternativeSizes:['205/55 R16','235/40 R18'],note:'Demo response. Replace with DVLA/vehicle-data provider.'})}

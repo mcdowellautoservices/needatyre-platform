@@ -1,0 +1,2 @@
+import {PageShell} from '@/components/PageShell'; import {tyres} from '@/lib/data'; import {TyreCard} from '@/components/TyreCard';
+export default function Tyres(){return <PageShell title="Tyre catalogue" subtitle="A searchable tyre catalogue with brand, size, efficiency, wet grip, noise, stock and fully fitted price fields."><div className="grid gap-5 md:grid-cols-3">{tyres.map(t=><TyreCard key={t.id} t={t}/>)}</div></PageShell>}
