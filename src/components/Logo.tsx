@@ -1,1 +1,18 @@
-export function Logo(){return <div className="flex items-center gap-3"><div className="grid h-11 w-11 place-items-center rounded-xl bg-navy text-lime shadow-glow"><span className="text-xl font-black">✶</span></div><div className="leading-4"><b>NeedA</b><br/><b className="text-electric">Tyre</b></div></div>}
+import Link from "next/link";
+
+export function Logo() {
+  return (
+    <Link href="/" style={wrapper}>
+      <div style={mark}>N</div>
+      <div>
+        <strong style={title}>NeedATyre</strong>
+        <span style={subTitle}>by Mcdowell Auto Services</span>
+      </div>
+    </Link>
+  );
+}
+
+const wrapper: React.CSSProperties = { display: "flex", alignItems: "center", gap: 12, textDecoration: "none", color: "#111827" };
+const mark: React.CSSProperties = { width: 52, height: 52, borderRadius: 16, background: "linear-gradient(135deg,#111827,#2563eb)", color: "#facc15", border: "3px solid #facc15", display: "grid", placeItems: "center", fontWeight: 900, fontSize: 26 };
+const title: React.CSSProperties = { display: "block", fontSize: 24, letterSpacing: "-0.05em" };
+const subTitle: React.CSSProperties = { display: "block", fontSize: 11, color: "#64748b", fontWeight: 700 };
